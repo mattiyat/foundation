@@ -7,13 +7,21 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
-const config = {/* your firebase web config */}
+const config = {
+apiKey: "AIzaSyC799djMSvgpD6qD1hXuHnjxnq0ajm6ows",
+authDomain: "wirelessbread-test.firebaseapp.com",
+databaseURL: "https://wirelessbread-test.firebaseio.com",
+projectId: "wirelessbread-test",
+storageBucket: "wirelessbread-test.appspot.com",
+messagingSenderId: "156878096990"};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
