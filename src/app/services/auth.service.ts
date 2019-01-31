@@ -29,7 +29,7 @@ export class AuthService {
         if (user) {
           return this.afs.doc<User>('users/${user.uid}').valueChanges();
         } else {
-          return of(null);
+          return of(null); 
         }
       })
     );
@@ -38,9 +38,7 @@ export class AuthService {
   async googleSignIn() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user).then(()=> {
-      this.router.navigate(['/login']);
-    })
+    return this.updateUserData(credential.user);
   }
 
   async signOut() {
