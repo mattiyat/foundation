@@ -6,6 +6,14 @@ export const environment = {
   production: false
 };
 
+export const config = {
+  apiKey: "AIzaSyC799djMSvgpD6qD1hXuHnjxnq0ajm6ows",
+  authDomain: "wirelessbread-test.firebaseapp.com",
+  databaseURL: "https://wirelessbread-test.firebaseio.com",
+  projectId: "wirelessbread-test",
+  storageBucket: "wirelessbread-test.appspot.com",
+  messagingSenderId: "156878096990"};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
