@@ -8,15 +8,18 @@ import { config } from '../environments/environment'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './core/login/login.component';
 import { ItemComponent } from './item/item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserProfileComponent } from './core/user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ItemComponent
+    ItemComponent,
+    UserProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
@@ -24,6 +27,7 @@ import { ItemComponent } from './item/item.component';
     AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

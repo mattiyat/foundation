@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth/auth.service';
+import { AuthService } from './shared/auth/auth.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 // import { UserProfileComponent } from './user-profile/user-profile.component'
 
 @Component({
@@ -10,4 +12,5 @@ import { AuthService } from './services/auth/auth.service';
 export class AppComponent {
   constructor(public auth: AuthService){}
   title = 'foundation';
+  faCoffee = faCoffee;
 }
