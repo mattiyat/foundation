@@ -9,11 +9,21 @@ import { User } from '../user/user.model';
 })
 export class UserService {
 
-  constructor(private firestore: AngularFirestore, ) { }
+  constructor(private firestore: AngularFirestore) { }
 
-  public getUsers(): Observable<User[]> { 
-    const userCollection = this.firestore.collection('users');
-    return this.getAllUsersCollection.snapshotChanges().pipe(map)
+  public getUsers(): Observable<User[]> {
+    return this.getAllUsersCollection()
+      .snapshotChanges()
+      .pipe(
+        map(item => {
+          const users: User[] = [];
+          item.map(element => {
+            const data = element.payload.doc.data() as User;
+            users.push(data as User);
+          });
+          return users;
+        })
+      );
   }
 
   private getAllUsersCollection() {
