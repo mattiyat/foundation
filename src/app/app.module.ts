@@ -12,6 +12,9 @@ import { LoginComponent } from './core/login/login.component';
 import { ItemComponent } from './item/item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserProfileComponent } from './core/user-profile/user-profile.component';
+import { ItemCardComponent } from './item/item-card/item-card.component';
+import { ItemListComponent } from './item/item-list/item-list.component';
+import { ItemDetailsComponent } from './item/item-details/item-details.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { UserProfileComponent } from './core/user-profile/user-profile.component
     AppComponent,
     LoginComponent,
     ItemComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ItemCardComponent,
+    ItemListComponent,
+    ItemDetailsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),

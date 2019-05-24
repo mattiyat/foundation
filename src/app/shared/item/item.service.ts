@@ -12,16 +12,12 @@ export class ItemService {
   item: AngularFirestoreDocument<Item> = null;
   userId: string;
 
-  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth) { 
-    this.afAuth.authState.subscribe(user => {
-      if(user) this.userId = user.uid;
-    })
-  }
+  constructor(private db: AngularFirestore) { }
 
   public getItemsCollection() : AngularFirestoreCollection<Item[]>{
     if(!this.userId) return;
     this.db.collection(`items/${this.userId}`).valueChanges()
-      .subscribe(val => console.log);   // 
+      .subscribe(val => console.log);   //
     return this.items
   }
 
