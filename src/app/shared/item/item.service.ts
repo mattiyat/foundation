@@ -1,33 +1,45 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Item } from './item.model';
+import { Injectable } from "@angular/core";
+import {
+  AngularFirestore,
+  AngularFirestoreCollection
+} from "@angular/fire/firestore";
+import { Item } from "./item.model";
+import * as rxjs from "rxjs";
+import { from, Observable } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ItemService {
+  constructor(private afDatabase: AngularFirestore) {}
 
-  items: AngularFirestoreCollection<Item[]> = null;
-  item: AngularFirestoreDocument<Item> = null;
-  userId: string;
-
-  constructor(private db: AngularFirestore) { }
-
-  public getItemsCollection() : AngularFirestoreCollection<Item[]>{
-    if(!this.userId) return;
-    this.db.collection(`items/${this.userId}`).valueChanges()
-      .subscribe(val => console.log);   //
-    return this.items
+  // Return entire item collection
+  private getAllItemsCollection() {
+    return this.afDatabase.collection<Item>('item');
   }
 
-  public getItemDocument() : AngularFirestoreDocument<Item> {
-    if(!this.userId) return;
-    this.item = this.db.doc<Item>(``)
-    return this.item
+  // Returns observable array of items
+  public getAllItems(): Observable<Item[]> {
+    return this.getAllItemsCollection()
+      .snapshotChanges()
+      .pipe(
+        map(item => {
+          const items: Item[] = [];
+          item.map(a => {
+            const data = a.payload.doc.data() as Item;
+            items.push(data as Item);
+          });
+          return items;
+      }));
   }
 
-  createItem(item: Item[]) {
-    this.items.add(item)
+  // Return item by passing an id
+  public getItem(id: string): Observable<Item> {
+    const item = this.afDatabase
+      .collection<Item>('item')
+      .doc<Item>(id)
+      .valueChanges();
+    return item;
   }
 }
