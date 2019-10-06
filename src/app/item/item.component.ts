@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item/item.service';
-import { Item } from '../services/item/item.model'
+import { Item } from '../services/item/item.model';
+import { AngularFireModule } from '@angular/fire';
 
 @Component({
   selector: 'app-item',
@@ -14,6 +15,11 @@ export class ItemComponent implements OnInit {
   constructor(public itemService: ItemService) { }
 
   ngOnInit() {
+    this.itemService.getSlideDecks();
     this.itemService.getItemsCollection();
+  }
+
+  getCollection() {
+    return;
   }
 }
