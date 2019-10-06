@@ -19,6 +19,8 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 import { ItemComponent } from "./item/item.component";
 import { NavComponent } from "./nav/nav.component";
 import { DropzoneDirective } from "./dropzone.directive";
+import { UploaderComponent } from './uploader/uploader.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DropzoneDirective } from "./dropzone.directive";
     ItemCardComponent,
     ItemListComponent,
     ItemDetailsComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    UploaderComponent,
+    UploadTaskComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
