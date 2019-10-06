@@ -5,7 +5,7 @@ import {
   AngularFirestoreDocument
 } from "@angular/fire/firestore";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Item } from "./item.model";
+import { Item } from "../../shared/item/item.model";
 
 @Injectable({
   providedIn: "root"

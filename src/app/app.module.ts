@@ -7,21 +7,34 @@ import { config } from "../environments/environment";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { LoginComponent } from "./login/login.component";
+import { LoginComponent } from "./core/login/login.component";
+import { UserProfileComponent } from "./core/user-profile/user-profile.component";
+
+import { ItemCardComponent } from "./item/item-card/item-card.component";
+import { ItemListComponent } from "./item/item-list/item-list.component";
+import { ItemDetailsComponent } from "./item/item-details/item-details.component";
+
+import { AngularFireStorageModule } from "@angular/fire/storage";
 import { ItemComponent } from "./item/item.component";
 import { NavComponent } from "./nav/nav.component";
-import { DropzoneDirective } from './dropzone.directive';
+import { DropzoneDirective } from "./dropzone.directive";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ItemComponent, NavComponent, DropzoneDirective],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    UserProfileComponent,
+    ItemCardComponent,
+    ItemListComponent,
+    ItemDetailsComponent,
+    DropzoneDirective
+  ],
   imports: [
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserModule,
-    AngularFireStorageModule,
     AppRoutingModule
   ],
   providers: [],

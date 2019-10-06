@@ -10,11 +10,11 @@ import {
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from './user.model';
+import { User } from '../user/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  user$: Observable<any>;
+  user$: Observable<User>;
 
   constructor(
     private afAuth: AngularFireAuth,
