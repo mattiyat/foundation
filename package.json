@@ -26,12 +26,12 @@
     "add": "^2.0.6",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
-    "firebase": "^5.11.1",
-    "flickity": "^2.2.0",
+    "firebase": "^7.1.0",
+    "flickity": "^2.2.1",
     "rxjs": "^6.5.2",
-    "tslib": "^1.9.0",
+    "tslib": "^1.10.0",
     "yarn": "^1.16.0",
-    "zone.js": "^0.8.29"
+    "zone.js": "^0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
@@ -39,7 +39,7 @@
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "~7.2.15",
     "@types/jasmine": "^2.8.16",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/jasminewd2": "^2.0.8",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",

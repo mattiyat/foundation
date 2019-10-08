@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-uploader",
-  templateUrl: "./uploader.component.html",
-  styleUrls: ["./uploader.component.scss"]
+  selector: 'app-uploader',
+  templateUrl: './uploader.component.html',
+  styleUrls: ['./uploader.component.scss']
 })
-export class UploaderComponent implements OnInit {
+export class UploaderComponent {
   isHovering: boolean;
   files: File[] = [];
 
@@ -19,5 +19,5 @@ export class UploaderComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+
 }
