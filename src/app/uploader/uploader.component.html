@@ -1,4 +1,4 @@
-<div class="dropzone" dropzone (hovered)="toggleHover($event);" (dropped)="onDrop($event);"
+<div class="dropzone" dropzone (hovered)="toggleHover($event.onDrop())" (dropped)="onDrop($event);"
   [class.hovering]="isHovering">
 
 
