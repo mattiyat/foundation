@@ -21,6 +21,8 @@ import { NavComponent } from './core/nav/nav.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { CardComponent } from './card/card.component';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { UploadTaskComponent } from './upload-task/upload-task.component';
     DropzoneDirective,
     UploaderComponent,
     UploadTaskComponent,
-    NavComponent
+    NavComponent,
+    CardComponent,
+    CardListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),

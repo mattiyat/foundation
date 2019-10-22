@@ -12,11 +12,11 @@ import { map } from 'rxjs/operators';
   providedIn: "root"
 })
 export class ItemService {
-  constructor(private afDatabase: AngularFirestore) {}
+  constructor(private afDatabase: AngularFirestore) { }
 
   // Return entire item collection
   private getAllItemsCollection() {
-    return this.afDatabase.collection<Item>('item');
+    return this.afDatabase.collection<Item>('items');
   }
 
   // Returns observable array of items
@@ -30,14 +30,16 @@ export class ItemService {
             const data = a.payload.doc.data() as Item;
             items.push(data as Item);
           });
+          console.log(items);
+
           return items;
-      }));
+        }));
   }
 
   // Return item by passing an id
   public getItem(id: string): Observable<Item> {
     const item = this.afDatabase
-      .collection<Item>('item')
+      .collection<Item>('items')
       .doc<Item>(id)
       .valueChanges();
     return item;
