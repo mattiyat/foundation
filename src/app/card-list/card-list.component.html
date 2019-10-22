@@ -1,5 +1,9 @@
 <h2>Card List Component</h2>
-<div *ngFor="let item of items">
-    <app-card [title]="title">
-    </app-card>
+<div>
+    <div class="columns is-desktop is-multiline is-centered">
+        <div *ngFor="let item of items" class="column is-half ">
+            <app-card [title]="title">
+            </app-card>
+        </div>
+    </div>
 </div>
