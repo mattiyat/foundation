@@ -3,32 +3,49 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { config } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LoginComponent } from './core/login/login.component';
+import { UserProfileComponent } from './core/user-profile/user-profile.component';
 
+import { ItemCardComponent } from './item/item-card/item-card.component';
+import { ItemListComponent } from './item/item-list/item-list.component';
+import { ItemDetailsComponent } from './item/item-details/item-details.component';
 
-const config = {
-apiKey: "AIzaSyC799djMSvgpD6qD1hXuHnjxnq0ajm6ows",
-authDomain: "wirelessbread-test.firebaseapp.com",
-databaseURL: "https://wirelessbread-test.firebaseio.com",
-projectId: "wirelessbread-test",
-storageBucket: "wirelessbread-test.appspot.com",
-messagingSenderId: "156878096990"};
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ItemComponent } from './item/item.component';
+import { NavComponent } from './core/nav/nav.component';
+import { DropzoneDirective } from './dropzone.directive';
+import { UploaderComponent } from './uploader/uploader.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { CardComponent } from './card/card.component';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    LoginComponent,
+    UserProfileComponent,
+    ItemCardComponent,
+    ItemListComponent,
+    ItemDetailsComponent,
+    DropzoneDirective,
+    UploaderComponent,
+    UploadTaskComponent,
+    NavComponent,
+    CardComponent,
+    CardListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
