@@ -43,7 +43,7 @@ export class AuthService {
 
   async signOut() {
     await this.afAuth.auth.signOut();
-    return this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 
   private updateUserData({uid, email, displayName, photoURL}: User) {
@@ -58,6 +58,5 @@ export class AuthService {
 
     return userRef.set(data, { merge: true});
   }
-
 
 }
