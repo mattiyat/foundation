@@ -23,6 +23,7 @@ import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { CardComponent } from './card/card.component';
 import { CardListComponent } from './card-list/card-list.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CardListComponent } from './card-list/card-list.component';
     UploadTaskComponent,
     NavComponent,
     CardComponent,
-    CardListComponent
+    CardListComponent,
+    HeroComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
