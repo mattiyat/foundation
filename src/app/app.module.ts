@@ -24,6 +24,7 @@ import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { CardComponent } from './card/card.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { HeroComponent } from './hero/hero.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HeroComponent } from './hero/hero.component';
     NavComponent,
     CardComponent,
     CardListComponent,
-    HeroComponent
+    HeroComponent,
+    HomepageComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
