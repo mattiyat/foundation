@@ -9,7 +9,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './core/login/login.component';
-import { UserProfileComponent } from './core/user-profile/user-profile.component';
+import { UserProfileComponent } from './shared/user/user-profile/user-profile.component';
 
 import { ItemCardComponent } from './item/item-card/item-card.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
