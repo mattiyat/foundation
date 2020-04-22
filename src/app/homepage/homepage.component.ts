@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../shared/item/item.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  watcher$: Observable<any>
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.watcher$ = this.itemService.getAllItems()
   }
 
 }

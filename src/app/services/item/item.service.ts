@@ -43,16 +43,6 @@ export class ItemService {
     return this.item;
   }
 
-  getSlideDecks() {
-    this.slideDecks = this.db.collection(`slide-decks`);
-    console.log(this.slideDecks);
-    this.slideDecks.get().subscribe(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(doc.id, "=>", doc.data);
-      });
-    });
-  }
-
   createItem(item: Item[]) {
     this.items.add(item);
   }

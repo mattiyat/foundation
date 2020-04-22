@@ -12,12 +12,23 @@ import { Subscription } from 'rxjs';
 export class ItemListComponent implements OnInit {
   itemSub: Subscription;
   items: Item[];
+  image: string;
+  text: string;
+  title: string;
+  itemsSub: Subscription;
+
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemSub = this.itemService.getAllItems()
       .subscribe()
+
+      this.itemsSub = this.itemService.getAllItems().subscribe(items => {
+        this.items = items;
+        return items;
+      });
+  
   }
 
 
