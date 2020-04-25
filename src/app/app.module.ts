@@ -21,8 +21,6 @@ import { NavComponent } from './core/nav/nav.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
-import { CardComponent } from './card/card.component';
-import { CardListComponent } from './card-list/card-list.component';
 import { HeroComponent } from './hero/hero.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
@@ -38,8 +36,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     UploaderComponent,
     UploadTaskComponent,
     NavComponent,
-    CardComponent,
-    CardListComponent,
     HeroComponent,
     HomepageComponent
   ],
