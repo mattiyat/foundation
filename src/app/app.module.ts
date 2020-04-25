@@ -16,7 +16,6 @@ import { ItemListComponent } from './item/item-list/item-list.component';
 import { ItemDetailsComponent } from './item/item-details/item-details.component';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { ItemComponent } from './item/item.component';
 import { NavComponent } from './core/nav/nav.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';

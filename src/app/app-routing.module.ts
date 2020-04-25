@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent }, // , canActivate: [AuthGuard]
   { path: 'item', component: ItemDetailsComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: '', component: HomepageComponent, canActivate: [AuthGuard] }
+  { path: '', component: HomepageComponent }
 ];
 
 @NgModule({
