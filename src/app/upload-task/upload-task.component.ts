@@ -1,67 +1,54 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import {
   AngularFireStorage,
-  AngularFireUploadTask
+  AngularFireUploadTask,
+  AngularFireStorageReference
 } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize, tap, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-upload-task',
-  templateUrl: './upload-task.component.html',
+  selector: 'app-upload-task', template: `
+  <input type="file" (change)="uploadFile($event)" />
+  <div>{{ uploadPercent | async }}</div>
+  <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+`,
   styleUrls: ['./upload-task.component.scss']
 })
 export class UploadTaskComponent implements OnInit {
   @Input() file: File;
-
+  ref: AngularFireStorageReference;
+  uploadProgress: Observable<number>;
+  uploadState: Observable<string>;
   task: AngularFireUploadTask;
-
   percentage: Observable<number>;
   snapshot: Observable<any>;
-  downloadURL;
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
 
   constructor(
     private storage: AngularFireStorage,
     private db: AngularFirestore
   ) { }
 
-  ngOnInit() {
-    this.startUpload();
-
-    // TO-DO Grab user context and append uid to file upload
+ngOnInit() {
+  this.downloadURL = this.storage.ref('/users/davideast.png').getDownloadURL()
   }
+  
 
-  startUpload() {
-    // The storage path
-    const path = `test/${Date.now()}_${this.file.name}`;
+  uploadFile(event) {
+    const file = event.target.files[0];
+    const filePath = 'name-your-file-path-here';
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
 
-    // Reference to storage bucket
-    const ref = this.storage.ref(path);
-
-    // The main task
-    this.task = this.storage.upload(path, this.file);
-
-    // Progress monitoring
-    this.percentage = this.task.percentageChanges();
-
-    this.snapshot = this.task.snapshotChanges().pipe(
-      tap(console.log),
-      // The file's download URL
-      finalize(async () => {
-        this.downloadURL = await ref.getDownloadURL().toPromise();
-
-        this.db
-          .collection('files')
-          .add({ downloadURL: this.downloadURL, path });
-      })
-    );
-  }
-
-  isActive(snapshot) {
-    return (
-      snapshot.state === 'running' &&
-      snapshot.bytesTransferred < snapshot.totalBytes
-    );
+    // observe percentage changes
+    this.uploadPercent = task.percentageChanges();
+    // get notified when the download URL is available
+    task.snapshotChanges().pipe(
+        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
+     )
+    .subscribe()
   }
 }
